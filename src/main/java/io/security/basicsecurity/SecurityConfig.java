@@ -74,5 +74,16 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
                 .tokenValiditySeconds(3600)
                 .userDetailsService(userDetailsService);
 
+        http
+                .sessionManagement()
+                .maximumSessions(1)
+                .maxSessionsPreventsLogin(true);
+
+        http
+                .sessionManagement()
+                .sessionFixation().none();
+
+
+
     }
 }
